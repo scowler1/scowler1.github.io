@@ -80,6 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+  text-align: center;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -352,20 +353,23 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
   font-family: inherit;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.2;
   color: inherit;
 }
 
 h1, .h1 {
-  font-size: 2.5rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
 h2, .h2 {
+  text-align: center;
   font-size: 2rem;
 }
 
 h3, .h3 {
+  text-align: center;
   font-size: 1.75rem;
 }
 
@@ -383,7 +387,7 @@ h6, .h6 {
 
 .lead {
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .display-1 {
@@ -399,7 +403,7 @@ h6, .h6 {
 }
 
 .display-3 {
-  font-size: 4.5rem;
+  font-size: 4.3rem;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -5088,13 +5092,13 @@ a.badge-dark:hover, a.badge-dark:focus {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: #7DC752;
+  background-color: #85929E;
   border-radius: 0.1rem;
 }
 
 @media (min-width: 576px) {
   .jumbotron {
-    padding: 4rem 2rem;
+    padding: 3rem 1rem;
   }
 }
 
