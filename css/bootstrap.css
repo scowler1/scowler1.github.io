@@ -2378,7 +2378,7 @@ textarea.form-control {
 .btn {
   display: inline-block;
   font-weight: 400;
-  color: #212529;
+  color: #5D6D7E;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -2425,8 +2425,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #5D6D7E;
+  border-color: #5D6D7E;
 }
 
 .btn-primary:hover {
@@ -5098,7 +5098,7 @@ a.badge-dark:hover, a.badge-dark:focus {
 
 @media (min-width: 576px) {
   .jumbotron {
-    padding: 3rem 1rem;
+    padding: 4rem 2rem;
   }
 }
 
