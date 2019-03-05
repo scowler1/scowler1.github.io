@@ -70,6 +70,7 @@ body {
 
 hr {
   box-sizing: content-box;
+  padding: 5px;
   height: 0;
   overflow: visible;
 }
@@ -4612,6 +4613,7 @@ input[type="button"].btn-block {
 }
 
 .card-title {
+  
   margin-bottom: 0.75rem;
 }
 
