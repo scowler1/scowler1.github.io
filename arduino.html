@@ -98,7 +98,52 @@
 	
 	<!-- Page Features -->
  
-  
+  <div class ="container-fluid">
+ <pre>
+  <code class="language-arduino">
+/*
+  IR Television mute
+  Mutes tTV when sound is detected 
+  Piezo in analog input A0 
+*/
+#include <IRremote.h>
+
+IRsend irsend;
+
+int sensorReading = 0;      // variable to store the value read from the microphone
+int muteStatus = 0;       // variable to store mute on/off
+int mic = 9;             // digital input from microphone
+int anMic = 0;
+int analog = 0;
+
+void setup() {
+ 
+  pinMode (mic,INPUT);
+  Serial.begin(9600);    // initialize serial monitor
+}
+
+void loop() {
+
+  sensorReading = digitalRead(mic);      // read the sensor (piezo) and store it in the variable sensorReading
+  if (sensorReading == HIGH) {            // if the sensor reading high
+
+      Serial.println("Sound Detected");    // print to serial monitor
+      
+      
+      int khz = 38; // 38kHz carrier frequency for the NEC protocol,remaining code dends IR burst to mute TV
+    unsigned int irSignal[] = {3350,1800,400,500,350,1400,350,500,350,500,400,500,350,500,400,500,350,500,350,550,350,500,350,500,400,500,350,500,350,1400,350,500,400,500,350,500,400,500,350,500,350,550,350,500,350,500,400,500,350,1400,350,500,350,500,400,500,350,500,400,500,350,500,350,500,400,500,350,500,400,1350,350,550,350,500,350,1400,350,1400,350,500,350,500,400,500,350,1400,350,500,350,500,400,1350,350,1400,350,500,400,1350,350}; //AnalysIR Batch Export (IRremote) - RAW
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        // Specific Raw code to mute Panasonic Viera TV
+    irsend.sendRaw(irSignal, sizeof(irSignal) / sizeof(irSignal[0]), khz);    //Note the approach used to automatically calculate the size of the array.
+    
+    }
+    
+    
+}
+  </code>
+ </pre>
+</div>
+
+
     <!-- Footer -->
   <footer class="footer fixed-bottom py-2 bg-dark">
     <div class="container">
