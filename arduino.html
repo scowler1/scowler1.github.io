@@ -7,51 +7,12 @@
 
 	<!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet"> 
-	
 	<link href="themes/prism.css" rel="stylesheet" />
+	<link href="css/custom.css" rel="stylesheet" />
 	
-    <style>
-	.navbar-toggler, .navbar-toggler:hover, .navbar-toggler:focus {
-    text-decoration: none;
-    border: 0;
-    outline: 0;
-    }
-  
-    *:hover,
-    *:focus,
-    *:active{
-    outline: none;
-    box-shadow: none !important;
-    -webkit-appearance: none;
-    }
     
-    .btn-primary { 
-  color: #ffffff !important; 
-  background-color:  #138D75   !important; 
-  border-color:  #138D75   !important;
-}
-    body{
-    font-family: 'Arimo', sans-serif;
-    }
-   
-    a,h1,h4 {
-    font-family: 'Anton', sans-serif;
-    }
-    
-    .btn-stuff:hover {
-    background-color:  #117A65  !important ;
-	}
-    
-	.btn-stuff:active {
-	transform: scale(.98);
-	
-	}
-
-    </style>
-
     <title>ClapMuteTV</title>
   </head>
   
@@ -59,7 +20,7 @@
   
       <!-- Page Content -->
   
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm bg-dark bgcolor navbar-dark">
     
 		<div class="container-fluid">
 			<a class="navbar-brand" href="index.html" >Home</a>
@@ -73,9 +34,6 @@
                 <li class="nav-item ">
 				<a class="nav-link text-right active disabled" href="#">Arduino</a>
                 </li>
-				<li class="nav-item ">
-				<a class="nav-link text-right" href="solder.html">Soldering</a>
-                </li>
                 <li class="nav-item ">
 				<a class="nav-link text-right" href="materials.html">Materials</a>
                 </li>
@@ -86,7 +44,7 @@
 	
     <!-- Jumbotron Header -->
 	<div class="container-fluid my-3">
-		<header class="jumbotron  my-2 pt-4 pb-1" style="background-color:  #16A085  ">
+		<header class="jumbotron  my-2 pt-4 pb-1 jumbo-color">
 			<h1 class="display-3 text-center">Arduino</h1>
 			<h2 class="display-6 text-center"></h2>
 			<div class="container-fluid text-center">
@@ -145,7 +103,7 @@ void loop() {
 
 
     <!-- Footer -->
-  <footer class="footer fixed-bottom py-2 bg-dark">
+  <footer class="footer py-2 bg-dark bgcolor">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; TVClapMute 2019</p>
     </div>

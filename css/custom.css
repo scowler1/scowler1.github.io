@@ -1,0 +1,47 @@
+img {
+opacity: 0.6;
+filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.bgcolor {
+background-color:  #053247  !important ;
+}
+
+.navbar-toggler, .navbar-toggler:hover, .navbar-toggler:focus {
+text-decoration: none;
+border: 0;
+outline: 0;
+}
+
+*:hover,
+*:focus,
+*:active{
+outline: none;
+box-shadow: none !important;
+-webkit-appearance: none;
+}
+
+.btn-primary { 
+color: #ffffff !important; 
+background-color:  #13748e   !important; 
+border-color:  #13748e   !important;
+}
+body{
+font-family: 'Arimo', sans-serif;
+}
+
+a,h1,h4 {
+font-family: 'Anton', sans-serif;
+}
+
+.jumbo-color {
+background-color:  #13748e  !important ;
+}
+
+.btn-stuff:hover {
+background-color:  #23637b  !important ;
+}
+
+.btn-stuff:active {
+transform: scale(.99);
+}
