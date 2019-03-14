@@ -10,19 +10,20 @@ code[class*="language-arduino"],
 pre[class*="language-arduino"] {
 	color: black;
 	background: none;
-	text-shadow: 0 1px white;
+	text-shadow: 1px white;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	font-size: 1em;
+	font-size: .95em;
+	font-weight: bold;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
 	word-wrap: normal;
-	line-height: 1.5;
+	line-height: 1.2;
 
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
+	-moz-tab-size: 1;
+	-o-tab-size: 1;
+	tab-size: 1;
 
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
@@ -51,14 +52,14 @@ code[class*="language-arduino"]::selection, code[class*="language-arduino"] ::se
 
 /* Code blocks */
 pre[class*="language-arduino"] {
-	padding: 1em;
-	margin: .5em 0;
+	padding: .1em;
+	margin: .1em 0;
 	overflow: auto;
 }
 
 :not(pre) > code[class*="language-arduino"],
 pre[class*="language-arduino"] {
-	background: #F0F0F0;
+	background: #E9E9E9 ; /*box-background*/
 }
 
 /* Inline code */
@@ -86,7 +87,6 @@ pre[class*="language-arduino"] {
 
 .token.property,
 .token.tag,
-
 .token.symbol,
 .token.deleted
 .token.string,
@@ -184,8 +184,8 @@ div.code-toolbar > .toolbar button {
 div.code-toolbar > .toolbar a,
 div.code-toolbar > .toolbar button,
 div.code-toolbar > .toolbar span {
-	color: #bbb;
-	font-size: .8em;
+	color: #666666;
+	font-size: 1em;
 	padding: 0 .5em;
 	background: #f5f2f0;
 	background: rgba(224, 224, 224, 0.2);

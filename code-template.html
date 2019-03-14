@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet"> 
+		<link href="themes/prism.css" rel="stylesheet" />
+		<link href="css/custom.css" rel="stylesheet" />
+		
+		<title>ClapMuteTV</title>
+	</head>
+  
+	<body>
+        <!-- Page Content -->
+  		<nav class="navbar navbar-expand-sm bg-dark bgcolor navbar-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="index.html" >Home</a>
+					<button class="navbar-toggler left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+			
+			<!-- Navbar links -->
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item ">
+					<a class="nav-link text-right active disabled" href="#">Arduino</a>
+					</li>
+					<li class="nav-item ">
+					<a class="nav-link text-right" href="parts.html">Parts</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	
+    <!-- Jumbotron Header -->
+	<div class="container-fluid my-3">
+		<header class="jumbotron  my-2 pt-4 pb-1 jumbo-color">
+			<h1 class="display-3 text-center">Code Box</h1>
+			<h2 class="display-6 text-center"></h2>
+			<div class="container-fluid text-center">
+			<p class="display-6 text-center"></p>
+			</div>
+		</header>
+	</div>
+	
+	
+	<!-- Page Features -->
+ 
+	<div class ="container-fluid mb-3">
+		<pre class="rounded">
+			<code class="language-arduino">
+			/*
+			  IR Television mute
+			  Mutes tTV when sound is detected 
+			  Piezo in analog input A0 
+			*/
+			#include <IRremote.h>
+
+			IRsend irsend;
+
+			int sensorReading = 0;     // variable to store the value read from the microphone
+			int muteStatus = 0;       // variable to store mute on/off
+			int mic = 9;             // digital input from microphone
+			int anMic = 0;
+			int analog = 0;
+
+			void setup() {
+			 
+			  pinMode (mic,INPUT);
+			  Serial.begin(9600);    // initialize serial monitor
+			}
+
+			void loop() {
+
+			  sensorReading = digitalRead(mic);      	 // read the sensor (piezo) and store it in the variable sensorReading
+			  if (sensorReading == HIGH) {            	// if the sensor reading high
+
+				  Serial.println("Sound Detected");   // print to serial monitor
+				  
+				  
+				  int khz = 38; // 38kHz carrier frequency for the NEC protocol,remaining code sends IR burst to mute TV
+				unsigned int irSignal[] = {3350,1800,400,500,350,1400,350,500,350,500,400,500,350,500,400,500,350,500,350,550,350,500,350,500,400,500,350,500,350,1400,350,500,400,500,350,500,400,500,350,500,350,550,350,500,350,500,400,500,350,1400,350,500,350,500,400,500,350,500,400,500,350,500,350,500,400,500,350,500,400,1350,350,550,350,500,350,1400,350,1400,350,500,350,500,400,500,350,1400,350,500,350,500,400,1350,350,1400,350,500,400,1350,350}; // Specific Raw code to mute my Panasonic Viera TV  
+																																																																																																																	 
+				irsend.sendRaw(irSignal, sizeof(irSignal) / sizeof(irSignal[0]), khz);    //Note the approach used to automatically calculate the size of the array.
+				
+				}
+				
+			}
+			</code>
+		</pre>
+	</div>
+
+
+    <!-- Footer -->
+	<footer class="footer py-2 bg-dark bgcolor">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; TVClapMute 2019</p>
+		</div>
+	</footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="prism.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  </body>
+</html>

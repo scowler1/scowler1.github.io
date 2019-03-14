@@ -3,174 +3,154 @@
 	<head>
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-				<!-- Bootstrap CSS -->
-				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-					<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
-						<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet"> 
-							<link href="themes/prism.css" rel="stylesheet" />
-							<link href="css/custom.css" rel="stylesheet" />
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet"> 
+		<link href="themes/prism.css" rel="stylesheet" />
+		<link href="css/custom.css" rel="stylesheet" />
 
+		<title>ClapMuteTV</title>
+	</head>
+	
+	<body>
+		<!-- Page Content -->
+		<nav class="navbar navbar-expand-sm bgcolor navbar-dark" >
+			<div class="container-fluid" >
+				<a class="navbar-brand" href="index.html" >Home</a>
+					<button class="navbar-toggler left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+					<span class="navbar-toggler-icon"></span>
+					</button>
 
+			<!-- Navbar links -->
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item ">
+					<a class="nav-link text-right" href="arduino.html">Arduino</a>
+					</li>
+					<li class="nav-item ">
+					<a class="nav-link text-right" href="parts.html">Parts</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 
-
-
-
-							<title>ClapMuteTV</title>
-
-						</head>
-						<body>
-
-							<!-- Page Content -->
-
-							<nav class="navbar navbar-expand-sm bgcolor navbar-dark" >
-
-								<div class="container-fluid" >
-									<a class="navbar-brand" href="index.html" >Home</a>
-									<button class="navbar-toggler left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-										<span class="navbar-toggler-icon"></span>
-									</button>
-
-									<!-- Navbar links -->
-									<div class="collapse navbar-collapse" id="collapsibleNavbar">
-										<ul class="navbar-nav">
-											<li class="nav-item ">
-												<a class="nav-link text-right" href="arduino.html">Arduino</a>
-											</li>
-											
-											<li class="nav-item ">
-												<a class="nav-link text-right" href="materials.html">Materials</a>
-											</li>
-										</ul>
-									</div>
-
-								</nav>
-
-								<!-- Jumbotron Header -->
-								<div class="container-fluid my-3">
-									<header class="jumbotron  my-2 pt-4 pb-1 img jumbo-color">
-										<h1 class="display-3 text-center">Turn It Down!</h1>
-										<h2 class="display-6 text-center">A guide to creating your own clapper for muting your T.V.</h2>
-										<div class="container-fluid text-center">
-											<p class="display-6 text-center">Television advertising is so loud and annoying I decided to do something about it. Inspired by the clap on/off gizmo you can buy for lamps, I've made my own for that damn noise.</p>
-										</div>
-									</header>
-								</div>
+		<!-- Jumbotron Header -->
+		<div class="container-fluid my-3">
+			<header class="jumbotron  my-2 pt-4 pb-1 img jumbo-color">
+				<h1 class="display-3 text-center">Turn It Down!</h1>
+				<h2 class="display-6 text-center">A guide to creating your own clapper for muting your T.V.</h2>
+				<div class="container-fluid text-center">
+					<p class="display-6 text-center">Television advertising is so loud and annoying I decided to do something about it. Inspired by the clap on/off gizmo you can buy for lamps, I've made my own for that damn noise.</p>
+				</div>
+			</header>
+		</div>
 
 
-								<!-- Page Features -->
-								<div class="container-fluid">
-									<div class="row">
+		<!-- Page Features -->
+		<div class="container-fluid">
+			<div class="row">
+			
+				<div class="col-lg-3 col-md-6 mb-4">
+					<div class="card h-100">
+					<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/remote.jpg?raw=true">
+						<div class="card-body">
+						<h4 class="card-title">Record Infrared</h4>
+						<p class="card-text">Record the infrared signal from your T.V.</p>
+						</div>
+						<a href="infrared1.html" class="btn btn-primary btn-stuff">Do it</a>
+					</div>
+				</div>
+				
+				<div class="col-lg-3 col-md-6 mb-4">
+					<div class="card h-100">
+					<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/code.jpg?raw=true">
+						<div class="card-body">
+						<h4 class="card-title">Test the Code</h4>
+						<p class="card-text">Build a pushbutton circuit and test the code</p>
+						</div>
+						<a href="code2.html" class="btn btn-primary btn-stuff">Do it</a>
+					</div>
+				</div>
+		
+				<div class="col-lg-3 col-md-6 mb-4">
+					<div class="card h-100">
+					<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/mike.jpg?raw=true">
+						<div class="card-body">
+						<h4 class="card-title">Add a Microphone</h4>
+						<p class="card-text">Add a microphone and finish the prototype unit</p>
+						</div>
+						<a href="microphone3.html" class="btn btn-primary btn-stuff">Do it</a>
+					</div>
+				</div>
+		
+				<div class="col-lg-3 col-md-6 mb-4">
+					<div class="card h-100">
+					<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/tool.jpg?raw=true">
+						<div class="card-body">
+						<h4 class="card-title">Final Build</h4>
+						<p class="card-text">Make it Smaller</p>
+						</div>
+						<a href="final4.html" class="btn btn-primary btn-stuff">Do it</a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<!--Contact Me-->
+		<h4 class="container-fluid pt-4">Contact me</h4>
+		<div class="container-fluid ">
+			<div class="row">
+				<div class="col-lg-6  col-xl-6">
+					<div class="well well-s">
+						<form>
+						<div class="row">
+							<div class="col-md-12">
+							<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" class="form-control" id="name" placeholder="Enter name" required="required"/>
+						</div>
+						<div class="form-group">
+							<label for="email">Email Address</label>
+							<div class="input-group">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+							</span>
+							<input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+							<label for="name">Message</label>
+							<textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+								placeholder="Message"></textarea>
+							</div>
+						</div>
+							<div class="col-md-12 mb-3">
+							<button type="submit" class="btn btn-primary pull-right btn-stuff" id="btnContactUs">Send Message</button>
+							</div>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 
-										<div class="col-lg-3 col-md-6 mb-4">
-											<div class="card h-100">
-												<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/remote.jpg?raw=true">
-													<div class="card-body">
-														<h4 class="card-title">Record Infrared</h4>
-														<p class="card-text">Record the infrared signal from your T.V.</p>
-													</div>
-													<a href="#" class="btn btn-primary btn-stuff">Do it</a>
-												</div>
-											</div>
+		<!-- Footer -->
+		<footer class="py-2 bg-dark bgcolor">
+			<div class="container-">
+				<p class="m-0 text-center text-white">Copyright &copy; TVClapMute 2019</p>
+			</div>
+		</footer>
 
-											<div class="col-lg-3 col-md-6 mb-4">
-												<div class="card h-100">
-													<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/code.jpg?raw=true">
-														<div class="card-body">
-															<h4 class="card-title">Test the Code</h4>
-															<p class="card-text">Build a pushbutton circuit and test the code</p>
-														</div>
-														<a href="#" class="btn btn-primary btn-stuff">Do it</a>
-													</div>
-												</div>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="prism.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-												<div class="col-lg-3 col-md-6 mb-4">
-													<div class="card h-100">
-														<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/mike.jpg?raw=true">
-															<div class="card-body">
-																<h4 class="card-title">Add a Microphone</h4>
-																<p class="card-text">Add a microphone and finish the prototype unit</p>
-															</div>
-															<a href="#" class="btn btn-primary btn-stuff">Do it</a>
-														</div>
-													</div>
-
-													<div class="col-lg-3 col-md-6 mb-4">
-														<div class="card h-100">
-															<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/tool.jpg?raw=true">
-																<div class="card-body">
-																	<h4 class="card-title">Final Build</h4>
-																	<p class="card-text">Make it Smaller</p>
-																</div>
-																<a href="#" class="btn btn-primary btn-stuff">Do it</a>
-															</div>
-														</div>
-													</div>
-												</div>
-
-												<h4 class="container-fluid pt-4">Contact me</h4>
-												<div class="container-fluid ">
-													<div class="row">
-														<div class="col-lg-6  col-xl-6">
-															<div class="well well-s">
-																<form>
-																	<div class="row">
-
-																		<div class="col-md-12">
-																			<div class="form-group">
-																				<label for="name">
-																					Name</label>
-																				<input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-																			</div>
-
-																			<div class="form-group">
-																				<label for="email">
-																					Email Address</label>
-																				<div class="input-group">
-																					<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-																					</span>
-																					<input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
-																			</div>
-																		</div>
-
-																		<div class="col-md-12">
-																			<div class="form-group">
-																				<label for="name">
-																					Message</label>
-																				<textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-																						placeholder="Message"></textarea>
-																			</div>
-																		</div>
-
-																		<div class="col-md-12 mb-3">
-																			<button type="submit" class="btn btn-primary pull-right btn-stuff" id="btnContactUs">
-																				Send Message</button>
-																		</div>
-
-																	</div>
-																</form>
-															</div>
-														</div>
-													</div>
-												</div>
-
-												<!-- Footer -->
-												<footer class="py-2 bg-dark bgcolor">
-													<div class="container">
-														<p class="m-0 text-center text-white">Copyright &copy; TVClapMute 2019</p>
-													</div>
-													<!-- /.container -->
-												</footer>
-
-												<!-- Optional JavaScript -->
-												<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-												<script src="prism.js"></script>
-												<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-												<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-												<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-											</body>
-										</html>
-										
+	</body>
+</html>
