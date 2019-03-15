@@ -59,7 +59,7 @@ pre[class*="language-arduino"] {
 
 :not(pre) > code[class*="language-arduino"],
 pre[class*="language-arduino"] {
-	background: #E9E9E9 ; /*box-background*/
+	background: #F7F7F7 ; /*box-background*/
 }
 
 /* Inline code */

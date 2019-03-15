@@ -28,7 +28,7 @@
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
 				<ul class="navbar-nav">
 					<li class="nav-item ">
-					<a class="nav-link text-right active disabled" href="#">Arduino</a>
+					<a class="nav-link text-right" href="arduino.html">Arduino</a>
 					</li>
 					<li class="nav-item ">
 					<a class="nav-link text-right" href="parts.html">Parts</a>
@@ -50,7 +50,100 @@
 	
 	
 	<!-- Page Features -->
- 
+	<div class="container-fluid">
+		<div class="row">
+		
+			<div class="col-lg-6 col-md-6 my-3">
+				<div class="card h-100 border border-secondary">
+					<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/mic.png?raw=true">
+						<div class="card-body bgltgrey ">
+							<div class="container mt-5">
+								<table class="table bggrey">
+									<thead>
+									    <tr>
+										<th>Parts Required</th>
+									    </tr>
+									</thead>
+									<tbody>
+									    <tr>
+										<td>Arduino/Genuino UNO</td>
+										</tr>
+									    <tr>
+										<td>IR (Infrared) Receiver - TSOP1738 / TSOP38238</td>
+									    </tr>
+									    <tr>
+										<td>Half-size breadboard</td>
+										</tr>
+										<tr>
+										<td>Jumper wires</td>
+										</tr>
+									</tbody>
+								  </table>
+								</div>
+						</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-6 col-md-6 my-3">
+				<div class="card h-100 border border-secondary">
+					<div class="card-body bgltgrey ">
+						<h2 class="display-6 ">Wire up your circuit</h2>
+						<p class="display-6 ">Wire up your circuit as shown with 5v and ground straight to the breadboard. 
+						Check the spec sheet or package that your IR receiver came in and make sure the Ground, Voltage and Output are correct. 
+						I used a TSOP1738, the TSOP38238 is different and has the Output pin in the middle.
+						Connect digital output 2 on the Arduino to the Output pin of the receiver. That's it, a very simple circuit. 
+						Now plug your arduino into your computer and open the Arduino IDE. Upload the code below and open the serial monitor in the IDE.
+						Every time you press a button on your remote you should see numbers on your computer screen.</p>
+						<div class ="container-fluid mb-3">
+						
+						<pre class="rounded">
+			<code class="language-arduino">
+			/*
+			  IR Television mute
+			  Mutes tTV when sound is detected 
+			  Piezo in analog input A0 
+			*/
+			#include <IRremote.h>
+
+			IRsend irsend;
+
+			int sensorReading = 0;     // variable to store the value read from the microphone
+			int muteStatus = 0;       // variable to store mute on/off
+			int mic = 9;             // digital input from microphone
+			int anMic = 0;
+			int analog = 0;
+
+			void setup() {
+			 
+			  pinMode (mic,INPUT);
+			  Serial.begin(9600);    // initialize serial monitor
+			}
+
+			void loop() {
+
+			  sensorReading = digitalRead(mic);      	 // read the sensor (piezo) and store it in the variable sensorReading
+			  if (sensorReading == HIGH) {            	// if the sensor reading high
+
+				  Serial.println("Sound Detected");   // print to serial monitor
+				  
+				  
+				  int khz = 38; // 38kHz carrier frequency for the NEC protocol,remaining code sends IR burst to mute TV
+				unsigned int irSignal[] = {3350,1800,400,500,350,1400,350,500,350,500,400,500,350,500,400,500,350,500,350,550,350,500,350,500,400,500,350,500,350,1400,350,500,400,500,350,500,400,500,350,500,350,550,350,500,350,500,400,500,350,1400,350,500,350,500,400,500,350,500,400,500,350,500,350,500,400,500,350,500,400,1350,350,550,350,500,350,1400,350,1400,350,500,350,500,400,500,350,1400,350,500,350,500,400,1350,350,1400,350,500,400,1350,350}; // Specific Raw code to mute my Panasonic Viera TV  
+																																																																																																																	 
+				irsend.sendRaw(irSignal, sizeof(irSignal) / sizeof(irSignal[0]), khz);    //Note the approach used to automatically calculate the size of the array.
+				
+				}
+				
+			}
+			</code>
+		</pre>
+	</div>
+					</div>
+				</div>
+			</div>	
+			
+		</div>
+	</div>	
 
 
 

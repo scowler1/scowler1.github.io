@@ -1,10 +1,32 @@
-img {
-opacity: 0.6;
+
+
+.img {
+opacity: 0.7;
 filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 
 .bgcolor {
-background-color:  #053247  !important ;
+background-color:  #042A3D  !important ; /*darkest blue*/
+}
+
+.bgblue {
+background-color:  #154760  !important ; /*second blue*/
+}
+
+.bgltblue {
+background-color:  #27647A  !important ; /*light blue*/
+}
+
+.bggrey {
+background-color:  #AFAFAF  !important ; /*grey*/
+}
+
+.bgltgrey {
+background-color:  #DDDDDD  !important ; /*light grey*/
+}
+
+.border-secondary {
+  border-color: #C9C9C9 !important;
 }
 
 .navbar-toggler, .navbar-toggler:hover, .navbar-toggler:focus {
@@ -23,8 +45,8 @@ box-shadow: none !important;
 
 .btn-primary { 
 color: #ffffff !important; 
-background-color:  #13748e   !important; 
-border-color:  #13748e   !important;
+background-color:  #107392   !important; 
+border-color:  #107392   !important;
 }
 body{
 font-family: 'Arimo', sans-serif;
@@ -35,7 +57,7 @@ font-family: 'Anton', sans-serif;
 }
 
 .jumbo-color {
-background-color:  #13748e  !important ;
+background-color:  #107392  !important ;
 }
 
 .btn-stuff:hover {
