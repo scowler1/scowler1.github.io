@@ -1,19 +1,19 @@
 /* PrismJS 1.15.0
-https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+c+cpp+arduino&plugins=toolbar+copy-to-clipboard */
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+c+cpp+c&plugins=toolbar+copy-to-clipboard */
 /**
- * prism.js default theme for JavaScript, CSS and HTML
+ * prism.js default theme for JavaScript, cSS and HTML
  * Based on dabblet (http://dabblet.com)
  * @author Lea Verou
  */
 
-code[class*="language-arduino"],
-pre[class*="language-arduino"] {
+code[class*="language-c"],
+pre[class*="language-c"] {
 	color: black;
 	background: none;
 	text-shadow: 1px white;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-family: consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-size: .95em;
-	font-weight: bold;
+	font-weight: normal;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -21,9 +21,9 @@ pre[class*="language-arduino"] {
 	word-wrap: normal;
 	line-height: 1.2;
 
-	-moz-tab-size: 1;
-	-o-tab-size: 1;
-	tab-size: 1;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
 
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
@@ -31,39 +31,39 @@ pre[class*="language-arduino"] {
 	hyphens: none;
 }
 
-pre[class*="language-arduino"]::-moz-selection, pre[class*="language-arduino"] ::-moz-selection,
-code[class*="language-arduino"]::-moz-selection, code[class*="language-arduino"] ::-moz-selection {
+pre[class*="language-c"]::-moz-selection, pre[class*="language-c"] ::-moz-selection,
+code[class*="language-c"]::-moz-selection, code[class*="language-c"] ::-moz-selection {
 	text-shadow: none;
 	background: #b3d4fc;
 }
 
-pre[class*="language-arduino"]::selection, pre[class*="language-arduino"] ::selection,
-code[class*="language-arduino"]::selection, code[class*="language-arduino"] ::selection {
+pre[class*="language-c"]::selection, pre[class*="language-c"] ::selection,
+code[class*="language-c"]::selection, code[class*="language-c"] ::selection {
 	text-shadow: none;
 	background: #b3d4fc;
 }
 
 @media print {
-	code[class*="language-arduino"],
-	pre[class*="language-arduino"] {
+	code[class*="language-c"],
+	pre[class*="language-c"] {
 		text-shadow: none;
 	}
 }
 
-/* Code blocks */
-pre[class*="language-arduino"] {
+/* code blocks */
+pre[class*="language-c"] {
 	padding: .1em;
 	margin: .1em 0;
 	overflow: auto;
 }
 
-:not(pre) > code[class*="language-arduino"],
-pre[class*="language-arduino"] {
-	background: #F7F7F7 ; /*box-background*/
+:not(pre) > code[class*="language-c"],
+pre[class*="language-c"] {
+	background: #E2E2E2; /*box-background*/
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-arduino"] {
+:not(pre) > code[class*="language-c"] {
 	padding: .1em;
 	border-radius: 2px;
 	white-space: normal;
@@ -83,8 +83,11 @@ pre[class*="language-arduino"] {
 .namespace {
 	opacity: .7;
 }
-
-
+.token.attr-value,
+.token.attr-name,
+.token.char,
+.token.builtin,
+.token.selector,
 .token.property,
 .token.tag,
 .token.symbol,
@@ -93,16 +96,16 @@ pre[class*="language-arduino"] {
 .token.number,
 .token.boolean,
 .token.operator {
-	color: #538C13;/*green*/
+	color: #538c13;/*green*/
 }
 
-.token.selector,
-.token.attr-name,
+
+
+
+.token.atrule,
 .token.function,
-.token.char,
-.token.builtin,
 .token.inserted {
-	color: #DC7633;/*orange*/
+	color: #Dc7633;/*orange*/
 }
 
 
@@ -114,9 +117,9 @@ pre[class*="language-arduino"] {
 	background: hsla(0, 0%, 100%, .5);
 }
 
+
 .token.constant,
-.token.atrule,
-.token.attr-value,
+
 .token.keyword {
 	color: #07a;/*blue*/
 }
@@ -184,10 +187,10 @@ div.code-toolbar > .toolbar button {
 div.code-toolbar > .toolbar a,
 div.code-toolbar > .toolbar button,
 div.code-toolbar > .toolbar span {
-	color: #666666;
+	color: #666666; /*text*/
 	font-size: 1em;
 	padding: 0 .5em;
-	background: #f5f2f0;
+	background: #E2E2E2; /*button*/
 	background: rgba(224, 224, 224, 0.2);
 	border-radius: .2em;
 }
