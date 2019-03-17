@@ -68,8 +68,8 @@ background-color:  #23637b  !important ;
 transform: scale(.99);
 }
 
-/*header font size for mobile*/
-@media (max-width:525px){
-   #header.header-front-page .bottom-header h1{
-    font-size:50px!important;
-  }}
+@media (min-width: 525px) {
+    .jumbotron h1 {
+        font-size: 4em;
+    }
+}
