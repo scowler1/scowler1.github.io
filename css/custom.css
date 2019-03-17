@@ -73,3 +73,9 @@ transform: scale(.99);
         font-size: 1em;
     }
 }
+
+@media (min-width: 525px) {
+    .display-3 {
+        font-size: 1em;
+    }
+}
