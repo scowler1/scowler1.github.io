@@ -68,14 +68,3 @@ background-color:  #23637b  !important ;
 transform: scale(.99);
 }
 
-@media (min-width: 525px) {
-    .jumbotron h1 {
-        font-size: 1em;
-    }
-}
-
-@media (min-width: 525px) {
-    .display-3 {
-        font-size: 1em;
-    }
-}
