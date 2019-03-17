@@ -1,4 +1,25 @@
+@include media-breakpoint-up(xs) {
+  .jumbotron h1 {
+   font-size: .5rem;
+  }
+}
+@include media-breakpoint-up(sm) {
+  .jumbotron h1 {
+   font-size: .5rem;
+  }
+}
 
+@include media-breakpoint-up(md) {
+  .jumbotron h1 {
+   font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+   .jumbotron h1 {
+    font-size: 1.6rem;
+   }
+}
 
 .img {
 opacity: 0.7;
@@ -68,25 +89,3 @@ background-color:  #23637b  !important ;
 transform: scale(.99);
 }
 
-@include media-breakpoint-up(xs) {
-  .jumbotron h1 {
-   font-size: .5rem;
-  }
-}
-@include media-breakpoint-up(sm) {
-  .jumbotron h1 {
-   font-size: .5rem;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .jumbotron h1 {
-   font-size: 1.4rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-   .jumbotron h1 {
-    font-size: 1.6rem;
-   }
-}
