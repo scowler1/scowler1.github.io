@@ -1,6 +1,11 @@
-@media (min-width: 480px) {  h1 {
-    font-size: 30px;
-  }}
+@media (min-width: 576px) {
+  .jumbotron {
+    padding: 4rem 2rem;
+	 h1 {
+     font-size: 30vw;
+	}
+  }
+}
 
 .img {
 opacity: 0.7;
