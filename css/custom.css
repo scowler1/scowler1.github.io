@@ -18,7 +18,7 @@ background-color:  #154760  !important ; /*second blue*/
 }
 
 .bgltblue {
-background-color:  #27647A  !important ; /*light blue*/
+background-color:  #347891  !important ; /*light blue*/
 }
 
 .bggrey {
@@ -49,19 +49,20 @@ box-shadow: none !important;
 
 .btn-primary { 
 color: #ffffff !important; 
-background-color:  #107392   !important; 
-border-color:  #107392   !important;
+background-color:  #347891   !important; 
+border-color:  #347891   !important;
 }
-body{
-font-family: 'Arimo', sans-serif;
+body,a {
+font-family: 'Roboto', sans-serif;
 }
 
-a,h1,h4 {
-font-family: 'Anton', sans-serif;
+h1,h4 {
+font-family: 'Play', sans-serif;
+font-weight: bold;
 }
 
 .jumbo-color {
-background-color:  #107392  !important ;
+background-color:  #347891  !important ;
 }
 
 .btn-stuff:hover {

@@ -7,7 +7,7 @@
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Play:700|Roboto:500" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet"> 
 		<link href="themes/prism.css" rel="stylesheet" />
 		<link href="css/custom.css" rel="stylesheet" />
@@ -41,7 +41,7 @@
 	<div class="container-fluid my-3">
 		<header class="jumbotron  my-2 pt-4 pb-1 jumbo-color">
 			<h1 class="text-center">Final Build</h1>
-			<h2 class="text-center"></h2>
+			<h2 class="text-center">It's all over the moment you climb up in Troy's bucket</h2>
 			<div class="container-fluid text-center">
 			<p class="display-6 text-center"></p>
 			</div>
@@ -57,7 +57,7 @@
 				<div class="card h-100 border border-secondary">
 					<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/final.png?raw=true">
 						<div class="card-body bgltgrey ">
-							<div class="container">
+							
 								<table class="table bggrey mt-5">
 									<thead>
 									    <tr>
@@ -79,7 +79,7 @@
 										</tr>
 									</tbody>
 								  </table>
-								</div>
+								
 						</div>
 				</div>
 			</div>
@@ -87,7 +87,7 @@
 			<div class="col-lg-4 col-sm-6 my-3">
 				<div class="card h-100 border border-secondary">
 					<div class="card-body bgltgrey ">
-						<h2 class="display-6 ">Wire up your circuit</h2>
+						<h2 class="display-6 ">Finish the build</h2>
 						<p class="display-6 ">Wire up your circuit as shown with 5v and ground straight to the breadboard. 
 						Check the spec sheet or package that your IR receiver came in and make sure the Ground, Voltage and Output are correct. 
 						I used a TSOP1738, the TSOP38238 is different and has the Output pin in the middle.
@@ -102,65 +102,7 @@
 				<div class="card h-100 border border-secondary">
 					<div class="card-body bgltgrey">
 						<div class ="container-fluid pb-0">
-						<pre class="rounded p-0">
-						<code class="language-c">
-
-/*
-Button
-
-Turns on and off a light emitting diode(LED) connected to digital pin 13,
-when pressing a pushbutton attached to pin 2.
-
-The circuit:
-- LED attached from pin 13 to ground
-- pushbutton attached to pin 2 from +5V
-- 10K resistor attached to pin 2 from ground
-
-- Note: on most Arduinos there is already an LED on the board
-  attached to pin 13.
-
-created 2005
-by DojoDave 
-modified 30 Aug 2011
-by Tom Igoe
-
-This example code is in the public domain.
-
-http://www.arduino.cc/en/Tutorial/Button
-*/
-
-// constants won't change. They're used here to set pin numbers:
-const int buttonPin = 2;     // the number of the pushbutton pin
-const int ledPin =  13;      // the number of the LED pin
-
-// variables will change:
-int buttonState = 0;         // variable for reading the pushbutton status
-
-void setup() {
-  // initialize the LED pin as an output:
-  pinMode(ledPin, OUTPUT);
-  // initialize the pushbutton pin as an input:
-  pinMode(buttonPin, INPUT);
-}
-
-void loop() {
-  // read the state of the pushbutton value:
-  buttonState = digitalRead(buttonPin);
-
-  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
-  if (buttonState == HIGH) {
-  // turn LED on:
-    digitalWrite(ledPin, HIGH);
-  } else {
-  // turn LED off:
-  digitalWrite(ledPin, LOW);
-	}
-}
-
-												
-
-						</code>
-						</pre>
+						
 						</div>
 					</div>
 				</div>
