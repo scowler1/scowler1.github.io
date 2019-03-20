@@ -88,7 +88,20 @@
 				<div class="card h-100 border border-secondary">
 					<div class="card-body bgltgrey">
 						<h2 class="display-6 ">Wire up your circuit</h2>
-						
+						<p>Now we use code which sends out the same  Raw signal as our remote. 
+						Set up a button connected to digital input 2 using a 10 kR resistor, commonly used in most Arduino button circuits. Pushing the 
+						button will tell the Arduino to run the led burst code once and wait for the next input. 
+						Connect digital output 3 to the center pin of the transistor. When the button is pressed the transistor will allow the full 
+						current of the Arduino to run through the led, in the burst pattern described by the code. Remember to substitute your Raw code 
+						on the &nbsp;<code> unsigned int irSignal[] = {}  </code>&nbsp; line. 
+						Many tutorials I've read say to use a resistor between the led and transistor. A resistance calculator told me I needed a 37R resistor, 
+						which I tried but found the led signal significantly weakened. With no resistor the signal was strong enough to bounce off walls 
+						and become effective in almost any position. The burst is only a fraction of a second and my led still works after
+						three months. Use a 1kR - 10 kR resistor between the Arduino and the transistor, the transistor only needs a tiny current to operate and 
+						the resistor also prevents potential damage from current flowing back to the Arduino.
+						If all works well you'll be able to mute/unmute your TV with each push of the button. 
+						Upload your code to the Arduino and test it. Try different angles and distances from your TV. I had a very strong
+						signal that seemed to work from anywhere.</p>
 						<img class="card-img border border-secondary rounded-sm mt-5" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/IRclean.png?raw=true">
 					</div>	
 				</div>		
