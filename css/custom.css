@@ -75,3 +75,9 @@ background-color:  #23637b  !important ;
 transform: scale(.99);
 }
 
+code {
+  font-size: 100%;
+  color: #07a;
+  word-break: break-word;
+}
+
