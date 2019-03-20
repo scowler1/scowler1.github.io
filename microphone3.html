@@ -40,7 +40,7 @@
     <!-- Jumbotron Header -->
 	<div class="container-fluid my-3">
 		<header class="jumbotron  my-2 pt-4 pb-1 jumbo-color">
-			<h1 class="text-center">Microphone</h1>
+			<h1 class="text-center">Mic it up</h1>
 			<h2 class="text-center">Got two turntables and a microphone</h2>
 			<div class="container-fluid text-center">
 			<p class="display-6 text-center"></p>
@@ -58,7 +58,7 @@
 					<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/mic.png?raw=true">
 						<div class="card-body bgltgrey ">
 							
-								<table class="table bggrey mt-5">
+								<table class="table bggrey mt-2">
 									<thead>
 									    <tr>
 										<th>Parts Required</th>
@@ -88,12 +88,25 @@
 				<div class="card h-100 border border-secondary">
 					<div class="card-body bgltgrey ">
 						<h2 class="display-6 ">Add a microphone</h2>
-						<p class="display-6 ">Wire up your circuit as shown with 5v and ground straight to the breadboard. 
-						Check the spec sheet or package that your IR receiver came in and make sure the Ground, Voltage and Output are correct. 
-						I used a TSOP1738, the TSOP38238 is different and has the Output pin in the middle.
-						Connect digital output 2 on the Arduino to the Output pin of the receiver. That's it, a very simple circuit. 
-						Now plug your arduino into your computer and open the Arduino IDE. Upload the code below and open the serial monitor in the IDE.
-						Every time you press a button on your remote you should see numbers on your computer screen.</p>
+						<p class="display-6 ">For this circuit I've used the Arduino nano plugged
+						into the breadboard. The microphone is connected directly to 5v and ground
+						with the digital output to digital input 9 on the nano. The led circuit is
+						the same, minus the button, and is connected directly to digital output 2
+						on the nano. This time the microphone will send a signal to run the led burst
+						code instead of the button. Your microphone should have a blue box with a
+						tiny screw head on it. This controls the sensitivity. If the green led on
+						the microphone board lights up when powered up, it's already picking up sounds
+						and triggering the ir burst. Turn the screw until the green light goes out.
+						On my microphone I had to turn anti clockwise to make it less sensetive, there
+						was a very small range for the mic to trigger. If it works, just touching 
+						the microphone should mute the TV. Now you can unplug the whole thing and 
+						try powering it from your TV USB port. It's now a game of positioning and 
+						microphone sensitivity depending on your TV volume, room shape and size etc.
+						Mine worked just behind the TV with the mic and led pointing straight at
+						me on the sofa. I assume the led signal bounced off the wall behind me. 
+						Had to adjust the sensitivity a few times to get it jus right. 
+						Comedy shows with loud applause were the main culprit but with a few tiny 
+						adjustments it worked perfectly.</p>
 					</div>	
 				</div>		
 			</div>			
@@ -169,8 +182,8 @@ void loop() {
 	</div>	
 	
 	<div class="col-md-12 mb-3">
-		<a href="code2.html" class="btn btn-primary btn-stuff py-1 px-2">Back</a>
-		<a href="final4.html" class="btn btn-primary btn-stuff float-right py-1 px-2">Next</a>
+		<a href="code2.html" class="btn btn-primary btn-stuff py-1 px-2">Pushbutton Switch</a>
+		<a href="final4.html" class="btn btn-primary btn-stuff float-right py-1 px-2">Final Build</a>
 	</div>
 
 

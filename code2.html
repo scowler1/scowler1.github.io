@@ -40,8 +40,7 @@
     <!-- Jumbotron Header -->
 	<div class="container-fluid my-3">
 			<header class="jumbotron  my-2 pt-4 pb-1 jumbo-color">
-				<h1 class=" text-center">Code</h1>
-				<h2 class="display-6 text-center">Lets write code bitches</h2>
+				<h1 class=" text-center">Button</h1>
 				<div class="container-fluid text-center">
 					<p class="display-6 text-center"></p>
 				</div>
@@ -58,7 +57,7 @@
 					<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/button2.png?raw=true">
 						<div class="card-body bgltgrey ">
 							
-								<table class="table bggrey mt-5">
+								<table class="table bggrey mt-2 rounded-sm">
 									<thead>
 									    <tr>
 										<th>Parts Required</th>
@@ -67,18 +66,30 @@
 									<tbody>
 									    <tr>
 										<td>Arduino/Genuino UNO</td>
+										<td>type Arduino UNO (Rev3)</td>
 										</tr>
 									    <tr>
-										<td>IR (Infrared) Receiver - TSOP1738 / TSOP38238</td>
+										<td>Infrared (940nm) LED</td>
+										<td>package 5 mm [THT]; current 0.1A; color Infrared (940nm)</td>
 									    </tr>
 									    <tr>
 										<td>Half-size breadboard</td>
+										<td></td>
 										</tr>
 										<tr>
-										<td>Jumper wires</td>
+										<td>NPN-Transistor</td>
+										<td>package SOT-23 [SMD]; type NPN 2N222A</td>
+										</tr>
+										<tr>
+										<td>10kΩ Resistor</td>
+										<td>package THT; bands 4; resistance 10kΩ</td>
+										</tr>
+										<tr>
+										<td>Pushbutton</td>
+										<td></td>
 										</tr>
 									</tbody>
-								  </table>
+								</table>
 								
 						</div>
 				</div>
@@ -87,13 +98,21 @@
 			<div class="col-lg-4 col-sm-6 my-3">
 				<div class="card h-100 border border-secondary">
 					<div class="card-body bgltgrey ">
-						<h2 class="display-6 ">Write Some Code</h2>
-						<p class="display-6 ">Wire up your circuit as shown with 5v and ground straight to the breadboard. 
-						Check the spec sheet or package that your IR receiver came in and make sure the Ground, Voltage and Output are correct. 
-						I used a TSOP1738, the TSOP38238 is different and has the Output pin in the middle.
-						Connect digital output 2 on the Arduino to the Output pin of the receiver. That's it, a very simple circuit. 
-						Now plug your arduino into your computer and open the Arduino IDE. Upload the code below and open the serial monitor in the IDE.
-						Every time you press a button on your remote you should see numbers on your computer screen.</p>
+						<h2 class="display-6 ">Pushbutton Code</h2>
+						<p>Now we use code which sends out the same  Raw signal as our remote. 
+						Set up a button connected to digital input 2 using a 10 kR resistor, commonly used in most Arduino button circuits. Pushing the 
+						button will tell the Arduino to run the led burst code once and wait for the next input. 
+						Connect digital output 3 to the center pin of the transistor. When the button is pressed the transistor will allow the full 
+						current of the Arduino to run through the led, in the burst pattern described by the code. Remember to substitute your Raw code 
+						on the 'unsigned int irSignal[] = {}' line. 
+						Many tutorials I've read say to use a resistor between the led and transistor. A resistance calculator told me I needed a 37R resistor, 
+						which I tried but found the led signal significantly weakened. With no resistor the signal was strong enough to bounce off walls 
+						and become effective in almost any position. The burst is only a fraction of a second and my led still works after
+						three months. Use a 1kR - 10 kR resistor between the Arduino and the transistor, the transistor only needs a tiny current to operate and 
+						the resistor also prevents potential damage from current flowing back to the Arduino.
+						If all works well you'll be able to mute/unmute your TV with each push of the button. 
+						Upload your code to the Arduino and test it. Try different angles and distances from your TV. I had a very strong
+						signal that seemed to work from anywhere.</p>
 					</div>	
 				</div>		
 			</div>			
@@ -105,29 +124,10 @@
 						<pre class="rounded p-0">
 						<code class="language-c">
 
-/*
-Button
+#include <IRremote.h>
 
-Turns on and off a light emitting diode(LED) connected to digital pin 13,
-when pressing a pushbutton attached to pin 2.
+IRsend irsend;
 
-The circuit:
-- LED attached from pin 13 to ground
-- pushbutton attached to pin 2 from +5V
-- 10K resistor attached to pin 2 from ground
-
-- Note: on most Arduinos there is already an LED on the board
-  attached to pin 13.
-
-created 2005
-by DojoDave 
-modified 30 Aug 2011
-by Tom Igoe
-
-This example code is in the public domain.
-
-http://www.arduino.cc/en/Tutorial/Button
-*/
 
 // constants won't change. They're used here to set pin numbers:
 const int buttonPin = 2;     // the number of the pushbutton pin
@@ -136,26 +136,31 @@ const int ledPin =  13;      // the number of the LED pin
 // variables will change:
 int buttonState = 0;         // variable for reading the pushbutton status
 
+
+
 void setup() {
   // initialize the LED pin as an output:
   pinMode(ledPin, OUTPUT);
   // initialize the pushbutton pin as an input:
   pinMode(buttonPin, INPUT);
-}
+  // start serial port at 9600 bps:
+  Serial.begin(9600);
+  }
 
 void loop() {
-  // read the state of the pushbutton value:
-  buttonState = digitalRead(buttonPin);
+      buttonState = digitalRead(buttonPin);  // Check if the button is pressed
+      if (buttonPin == HIGH) {               // If it is...
+        digitalWrite(ledPin, HIGH);          // ...turn on the LED on the Arduino board
+    
+	// This code is from the IRremote library and assumes you have an IR led connected to Digital Output 3
+    int khz = 38; // 38kHz carrier frequency for the NEC protocol
+  unsigned int irSignal[] = {3350,1800,400,500,350,1400,350,500,350,500,400,500,350,500,400,500,350,500,350,550,350,500,350,500,400,500,350,500,350,1400,350,500,400,500,350,500,400,500,350,500,350,550,350,500,350,500,400,500,350,1400,350,500,350,500,400,500,350,500,400,500,350,500,350,500,400,500,350,500,400,1350,350,550,350,500,350,1400,350,1400,350,500,350,500,400,500,350,1400,350,500,350,500,400,1350,350,1400,350,500,400,1350,350}; //The Raw code from your remote.
+  
+  irsend.sendRaw(irSignal, sizeof(irSignal) / sizeof(irSignal[0]), khz); //Note the approach used to automatically calculate the size of the array.
+  }
 
-  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
-  if (buttonState == HIGH) {
-  // turn LED on:
-    digitalWrite(ledPin, HIGH);
-  } else {
-  // turn LED off:
-  digitalWrite(ledPin, LOW);
-	}
-}
+}  
+
 
 												
 
@@ -169,8 +174,8 @@ void loop() {
 	</div>	
 	
 	<div class="col-md-12 mb-3">
-		<a href="infrared1.html" class="btn btn-primary btn-stuff py-1 px-2">Back</a>
-		<a href="microphone3.html" class="btn btn-primary btn-stuff float-right py-1 px-2">Next</a>
+		<a href="infrared1.html" class="btn btn-primary btn-stuff py-1 px-2">Record Infrared</a>
+		<a href="microphone3.html" class="btn btn-primary btn-stuff float-right py-1 px-2">Mic it up</a>
 	</div>
 
 

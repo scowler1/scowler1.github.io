@@ -7,7 +7,7 @@
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=Play:700|Roboto:500" rel="stylesheet">  
+		<link href="https://fonts.googleapis.com/css?family=Play:700|Roboto:400" rel="stylesheet">  
 		<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet"> 
 		<link href="themes/prism.css" rel="stylesheet" />
 		<link href="css/custom.css" rel="stylesheet" />
@@ -58,7 +58,7 @@
 					<img class="card-img-top" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/ir2.png?raw=true">
 						<div class="card-body bgltgrey ">
 							
-								<table class="table bggrey mt-5">
+								<table class="table bggrey mt-2 rounded-sm">
 									<thead>
 									    <tr>
 										<th>Parts Required</th>
@@ -78,7 +78,7 @@
 										<td>Jumper wires</td>
 										</tr>
 									</tbody>
-								  </table>
+								</table>
 							
 						</div>
 				</div>
@@ -86,14 +86,17 @@
 			
 			<div class="col-lg-4 col-sm-6 my-3">
 				<div class="card h-100 border border-secondary">
-					<div class="card-body bgltgrey ">
+					<div class="card-body bgltgrey">
 						<h2 class="display-6 ">Wire up your circuit</h2>
-						<p class="display-6 ">Wire up your circuit as shown with 5v and ground straight to the breadboard. 
+						<p class="font-weight-lighter">Wire up your circuit as shown with 5v and ground straight to the breadboard. 
 						Check the spec sheet or package that your IR receiver came in and make sure the Ground, Voltage and Output are correct. 
 						I used a TSOP1738, the TSOP38238 is different and has the Output pin in the middle.
 						Connect digital output 2 on the Arduino to the Output pin of the receiver. That's it, a very simple circuit. 
-						Now plug your arduino into your computer and open the Arduino IDE. Upload the code below and open the serial monitor in the IDE.
-						Every time you press a button on your remote you should see numbers on your computer screen.</p>
+						Now plug your arduino into your computer and open the Arduino IDE. Upload the code and open the serial monitor in the IDE.
+						Point your remote at the IR reciever and press a button on your remote. You should see numbers in the serial monitor on your 
+						computer screen.</p>
+						<p>You don't even need the breadboard for this. With male-female jumper wires you could just connect the IR sensor directly.</p>
+						<img class="card-img border border-secondary rounded-sm mt-5" src="C:\Users\scowl\Documents\GitHub\scowler1.github.io\img\IRclean.png">
 					</div>	
 				</div>		
 			</div>			
@@ -105,59 +108,190 @@
 						<pre class="rounded p-0">
 						<code class="language-c">
 
+
 /*
-Button
+ * IRrecord: record and play back IR signals as a minimal 
+ * An IR detector/demodulator must be connected to the input RECV_PIN.
+ * An IR LED must be connected to the output PWM pin 3.
+ * A button must be connected to the input BUTTON_PIN; this is the
+ * send button.
+ * A visible LED can be connected to STATUS_PIN to provide status.
+ *
+ * The logic is:
+ * If the button is pressed, send the IR code.
+ * If an IR code is received, record it.
+ *
+ * Version 0.11 September, 2009
+ * Copyright 2009 Ken Shirriff
+ * http://arcfn.com
+ */
 
-Turns on and off a light emitting diode(LED) connected to digital pin 13,
-when pressing a pushbutton attached to pin 2.
+#include <IRremote.h>
 
-The circuit:
-- LED attached from pin 13 to ground
-- pushbutton attached to pin 2 from +5V
-- 10K resistor attached to pin 2 from ground
+int RECV_PIN = 11;
+int BUTTON_PIN = 12;
+int STATUS_PIN = 13;
 
-- Note: on most Arduinos there is already an LED on the board
-  attached to pin 13.
+IRrecv irrecv(RECV_PIN);
+IRsend irsend;
 
-created 2005
-by DojoDave 
-modified 30 Aug 2011
-by Tom Igoe
+decode_results results;
 
-This example code is in the public domain.
-
-http://www.arduino.cc/en/Tutorial/Button
-*/
-
-// constants won't change. They're used here to set pin numbers:
-const int buttonPin = 2;     // the number of the pushbutton pin
-const int ledPin =  13;      // the number of the LED pin
-
-// variables will change:
-int buttonState = 0;         // variable for reading the pushbutton status
-
-void setup() {
-  // initialize the LED pin as an output:
-  pinMode(ledPin, OUTPUT);
-  // initialize the pushbutton pin as an input:
-  pinMode(buttonPin, INPUT);
+void setup()
+{
+  Serial.begin(9600);
+  irrecv.enableIRIn(); // Start the receiver
+  pinMode(BUTTON_PIN, INPUT);
+  pinMode(STATUS_PIN, OUTPUT);
 }
+
+// Storage for the recorded code
+int codeType = -1; // The type of code
+unsigned long codeValue; // The code value if not raw
+unsigned int rawCodes[RAWBUF]; // The durations if raw
+int codeLen; // The length of the code
+int toggle = 0; // The RC5/6 toggle state
+
+// Stores the code for later playback
+// Most of this code is just logging
+void storeCode(decode_results *results) {
+  codeType = results->decode_type;
+  //int count = results->rawlen;
+  if (codeType == UNKNOWN) {
+    Serial.println("Received unknown code, saving as raw");
+    codeLen = results->rawlen - 1;
+    // To store raw codes:
+    // Drop first value (gap)
+    // Convert from ticks to microseconds
+    // Tweak marks shorter, and spaces longer to cancel out IR receiver distortion
+    for (int i = 1; i <= codeLen; i++) {
+      if (i % 2) {
+        // Mark
+        rawCodes[i - 1] = results->rawbuf[i]*USECPERTICK - MARK_EXCESS;
+        Serial.print(" m");
+      } 
+      else {
+        // Space
+        rawCodes[i - 1] = results->rawbuf[i]*USECPERTICK + MARK_EXCESS;
+        Serial.print(" s");
+      }
+      Serial.print(rawCodes[i - 1], DEC);
+    }
+    Serial.println("");
+  }
+  else {
+    if (codeType == NEC) {
+      Serial.print("Received NEC: ");
+      if (results->value == REPEAT) {
+        // Don't record a NEC repeat value as that's useless.
+        Serial.println("repeat; ignoring.");
+        return;
+      }
+    } 
+    else if (codeType == SONY) {
+      Serial.print("Received SONY: ");
+    } 
+    else if (codeType == PANASONIC) {
+      Serial.print("Received PANASONIC: ");
+    }
+    else if (codeType == JVC) {
+      Serial.print("Received JVC: ");
+    }
+    else if (codeType == RC5) {
+      Serial.print("Received RC5: ");
+    } 
+    else if (codeType == RC6) {
+      Serial.print("Received RC6: ");
+    } 
+    else {
+      Serial.print("Unexpected codeType ");
+      Serial.print(codeType, DEC);
+      Serial.println("");
+    }
+    Serial.println(results->value, HEX);
+    codeValue = results->value;
+    codeLen = results->bits;
+  }
+}
+
+void sendCode(int repeat) {
+  if (codeType == NEC) {
+    if (repeat) {
+      irsend.sendNEC(REPEAT, codeLen);
+      Serial.println("Sent NEC repeat");
+    } 
+    else {
+      irsend.sendNEC(codeValue, codeLen);
+      Serial.print("Sent NEC ");
+      Serial.println(codeValue, HEX);
+    }
+  } 
+  else if (codeType == SONY) {
+    irsend.sendSony(codeValue, codeLen);
+    Serial.print("Sent Sony ");
+    Serial.println(codeValue, HEX);
+  } 
+  else if (codeType == PANASONIC) {
+    irsend.sendPanasonic(codeValue, codeLen);
+    Serial.print("Sent Panasonic");
+    Serial.println(codeValue, HEX);
+  }
+  else if (codeType == JVC) {
+    irsend.sendJVC(codeValue, codeLen, false);
+    Serial.print("Sent JVC");
+    Serial.println(codeValue, HEX);
+  }
+  else if (codeType == RC5 || codeType == RC6) {
+    if (!repeat) {
+      // Flip the toggle bit for a new button press
+      toggle = 1 - toggle;
+    }
+    // Put the toggle bit into the code to send
+    codeValue = codeValue & ~(1 << (codeLen - 1));
+    codeValue = codeValue | (toggle << (codeLen - 1));
+    if (codeType == RC5) {
+      Serial.print("Sent RC5 ");
+      Serial.println(codeValue, HEX);
+      irsend.sendRC5(codeValue, codeLen);
+    } 
+    else {
+      irsend.sendRC6(codeValue, codeLen);
+      Serial.print("Sent RC6 ");
+      Serial.println(codeValue, HEX);
+    }
+  } 
+  else if (codeType == UNKNOWN /* i.e. raw */) {
+    // Assume 38 KHz
+    irsend.sendRaw(rawCodes, codeLen, 38);
+    Serial.println("Sent raw");
+  }
+}
+
+int lastButtonState;
 
 void loop() {
-  // read the state of the pushbutton value:
-  buttonState = digitalRead(buttonPin);
+  // If button pressed, send the code.
+  int buttonState = digitalRead(BUTTON_PIN);
+  if (lastButtonState == HIGH && buttonState == LOW) {
+    Serial.println("Released");
+    irrecv.enableIRIn(); // Re-enable receiver
+  }
 
-  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
-  if (buttonState == HIGH) {
-  // turn LED on:
-    digitalWrite(ledPin, HIGH);
-  } else {
-  // turn LED off:
-  digitalWrite(ledPin, LOW);
-	}
-}
-
-												
+  if (buttonState) {
+    Serial.println("Pressed, sending");
+    digitalWrite(STATUS_PIN, HIGH);
+    sendCode(lastButtonState == buttonState);
+    digitalWrite(STATUS_PIN, LOW);
+    delay(50); // Wait a bit between retransmissions
+  } 
+  else if (irrecv.decode(&results)) {
+    digitalWrite(STATUS_PIN, HIGH);
+    storeCode(&results);
+    irrecv.resume(); // resume receiver
+    digitalWrite(STATUS_PIN, LOW);
+  }
+  lastButtonState = buttonState;
+}											
 
 						</code>
 						</pre>
@@ -170,7 +304,7 @@ void loop() {
 	
 	<div class="col-md-12 mb-3">
 		<a href="index.html" class="btn btn-primary btn-stuff py-1 px-2">Home</a>
-		<a href="code2.html" class="btn btn-primary btn-stuff float-right py-1 px-2">Next</a>
+		<a href="code2.html" class="btn btn-primary btn-stuff float-right py-1 px-2">Pushbutton</a>
 	</div>
 
 
