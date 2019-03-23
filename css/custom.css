@@ -4,6 +4,15 @@ h1 {font-size: 4.5rem;
 h2 {font-size: 2.5rem;
 }
 
+h3 {font-size: 2rem;
+}
+
+h5 {font-size: 1.2rem;
+}
+
+p {font-size: .9rem;
+}
+
 .img {
 opacity: 0.7;
 filter: alpha(opacity=50); /* For IE8 and earlier */
@@ -18,7 +27,7 @@ background-color:  #154760  !important ; /*second blue*/
 }
 
 .bgltblue {
-background-color:  #347891  !important ; /*light blue*/
+background-color:  #4898B5  !important ; /*light blue*/
 }
 
 .bggrey {
@@ -63,10 +72,6 @@ font-family: 'Play', sans-serif;
 font-weight: bold;
 }
 
-.jumbo-color {
-background-color:  #347891  !important ;
-}
-
 .btn-stuff:hover {
 background-color:  #23637b  !important ;
 }
@@ -81,20 +86,5 @@ code {
   word-break: break-word;
 }
 
-@media (min-width: 576px) {
-  .card-columns {
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
-    -webkit-column-gap: 1.25rem;
-    -moz-column-gap: 1.25rem;
-    column-gap: 1.25rem;
-    orphans: 1;
-    widows: 1;
-  }
-
-	.column-gap{
-		column-gap: 5px
-	}
 
 
