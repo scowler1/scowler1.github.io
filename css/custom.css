@@ -57,9 +57,9 @@ box-shadow: none !important;
 }
 
 .btn-primary { 
-color: #ffffff !important; 
-background-color:  #347891   !important; 
-border-color:  #347891   !important;
+color: #000000 !important; 
+background-color:  #4898B5   !important; 
+border-color:  #4898B5   !important;
 }
 a,p,body {
 font-family: 'Roboto', sans-serif;
@@ -84,6 +84,11 @@ code {
   font-size: 100%;
   color: #07a;
   word-break: break-word;
+}
+
+#navbar {
+ 
+  transition: top 0.4s;
 }
 
 

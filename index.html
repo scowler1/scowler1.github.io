@@ -17,7 +17,7 @@
 	
 	<body>
 		<!-- Page Content -->
-		<nav class="navbar navbar-expand-sm bgcolor navbar-dark" >
+		<nav class="navbar navbar-expand-sm bgcolor navbar-dark" id="navbar" >
 			<div class="container-fluid" >
 				<a class="navbar-brand mb-1" href="index.html" >Home</a>
 					<button class="navbar-toggler left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -40,14 +40,16 @@
 		<!-- Jumbotron Header -->
 		<div class="container-fluid my-3">
 			<header class="jumbotron my-2 pt-1 pb-1 bgltblue">
-				<h1 class="text-center mt-2">Turn It Down!</h1>
-				<h3 class="display-6 text-center">Makeyour own clapper and mute your T.V.</h3>
-				<div class="container-fluid text-center">
-					<p class="display-6 text-center">Television advertising is so loud and annoying. Here's a guide to Arduino and building a clap mute device.</p>
-				</div>
+				<h1 class="text-center mt-2">Make it Stop!</h1>
+				<h3 class="display-6 text-center">Make a clapper and mute your T.V.</h3>
 			</header>
 		</div>
-
+		
+		<div class="container-fluid my-3">
+			<div class="container-fluid bgltgrey rounded-sm">
+				<p class="display-6 text-center">Television advertising is so loud and annoying. Here's a guide to Arduino and building a clap mute device.</p>
+			</div>
+		</div>
 
 		<!-- Page Features -->
 		<div class="container-fluid">
@@ -60,7 +62,7 @@
 						<h4 class="card-title">Record Infrared</h4>
 						<p class="card-text">Record the infrared signal from your T.V.</p>
 						</div>
-						<a href="infrared1.html" class="btn btn-primary btn-stuff">Do it</a>
+						<a href="infrared1.html" class="btn btn-primary btn-stuff ">Do it</a>
 					</div>
 				</div>
 				
@@ -147,6 +149,18 @@
 
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script>
+		var prevScrollpos = window.pageYOffset;
+		window.onscroll = function() {
+		var currentScrollPos = window.pageYOffset;
+		  if (prevScrollpos > currentScrollPos) {
+			document.getElementById("navbar").style.top = "0";
+		  } else {
+			document.getElementById("navbar").style.top = "-50px";
+		  }
+		  prevScrollpos = currentScrollPos;
+		}
+		</script>
 		<script src="prism.js"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
