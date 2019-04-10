@@ -76,7 +76,9 @@ font-weight: bold;
 background-color:  #3e829b !important ;
 }
 
-
+.btn-stuff:active {
+transform: scale(.997);
+}
 
 code {
   font-size: 100%;
