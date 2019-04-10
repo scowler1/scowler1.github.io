@@ -73,11 +73,11 @@ font-weight: bold;
 }
 
 .btn-stuff:hover {
-background-color:  #23637b  !important ;
+background-color:  #154760 !important ;
 }
 
 .btn-stuff:active {
-transform: scale(.99);
+transform: scale(100);
 }
 
 code {
