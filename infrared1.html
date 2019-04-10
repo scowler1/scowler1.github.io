@@ -91,19 +91,24 @@
 						<p>The infrared sensor will detect any infrared signal. The signal from a television remote
 						 is a short burst in a pulse pattern, a different pattern for each button pressed.
 						The programmed Arduino can translate this burst into a long series of numbers - the 'raw' 
-						signal code.</p>
+						signal.</p>
+						
+						<p>Wire up your circuit as with 5v and ground straight to the breadboard. Check the spec sheet 
+						for your IR receiver and make sure the Ground, Voltage and Output are where 
+						you think they are.
+						I used a TSOP1738 with the output pin on the left. The TSOP38238 has the Output pin in the middle.
+						The Arduino code will tell it to expect a digital input on pin 2 and write it into the serial monitor.
+						Connect digital input 2 on the Arduino to the Output pin of the receiver. That's it, a very simple circuit.</p>
+						
+						<p>Connect your Arduino to your computer and open the Arduino IDE. Upload the code and open the serial monitor in the IDE.
+						Point your remote at the IR reciever and get the raw code for muting your television. Save it somewhere convenient
+						so you can paste it into the pushbutton code.</p> 
+						
 						<p>Open the serial monitor on your computer and you will see numbers everytime a signal is detected.
-						Point you remote control at the sensor and press a remote button. You should see numbers, lots of them
-						in the serial , one of them labeled as the raw code. This long series of numbers is the code we will
+						Point your remote control at the sensor and press a button. You should see numbers - lots of them -
+						in the serial monitor. One of them will be labeled as the raw code. This long series of numbers is the code we will
 						transmit in the pushbutton part of this tutorial</p>
 					
-						<p>Wire up your circuit as with 5v and ground straight to the breadboard. 
-						Check the spec sheet or package that your IR receiver came in and make sure the Ground, Voltage and Output are correct. 
-						I used a TSOP1738, the TSOP38238 is different and has the Output pin in the middle.
-						Connect digital output 2 on the Arduino to the Output pin of the receiver. That's it, a very simple circuit. 
-						Now plug your arduino into your computer and open the Arduino IDE. Upload the code and open the serial monitor in the IDE.
-						Point your remote at the IR reciever and get the raw code for muting your television. Save it somewhere convenient
-						so you can paste it into the pushbutton code.</p>
 						<p>You don't really need the breadboard for this part of the tutorial. With male-female jumper wires you could 
 						just connect the IR sensor directly to the Arduino board.</p>
 						<img class="card-img border border-secondary rounded-sm mt-5" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/IRclean.png?raw=true">
