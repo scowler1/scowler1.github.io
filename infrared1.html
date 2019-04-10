@@ -89,21 +89,19 @@
 					<div class="card-body bgltgrey">
 						<h2 class="display-6 ">Wire up your circuit</h2>
 						<p>An infrared sensor will detect any infrared signal. The signal from a television remote
-						 is a short burst of light in a pulse pattern, a different pattern for each button. You can see
-						this burst if you point the remote at your phone camera. If you can see the pattern with your 
-						naked eye, congratulations. You have superpowers! Perhaps you can send infrared signals too!
-						The programmed Arduino can translate this burst into a long series of numbers - the 'raw' 
-						signal.</p>
+						 is a short burst of light in a pulse pattern, a different pattern for each button. The programmed 
+						Arduino can translate this burst into a long series of numbers - the 'raw' 
+						signal.You can see this burst if you point the remote at your phone's camera. If you can see the pattern with your 
+						naked eye, congratulations. You have superpowers! 
+						</p>
 						
-						<p>Wire up the circuit with 5V and Ground straight to the breadboard. Connect the Output 
-						pin of the sensor to pin 2 on your Arduino. Connect your sensor's other pins to 5V and Ground. Check the spec sheet 
+						<p>Wire up the circuit with 5V and Ground straight to the breadboard. Connect your sensor's corresponding pins 
+						to 5V and Ground on your breadboard. Check the spec sheet 
 						for your IR sensor and make sure the Ground, Voltage and Output are where 
 						you think they are.
 						I used a TSOP1738 with the Output pin on the left. The TSOP38238 has the Output pin in the middle.
-						</p>
-						<p>
 						The Arduino code will tell it to expect a Digital Input on pin 2 and write that information into the serial monitor.
-						Connect Digital Input 2 on the Arduino to the Output pin of the receiver.</p>
+						Connect pin 2 on the Arduino to the Output pin of the receiver.</p>
 						
 						
 						<p>Connect your Arduino to your computer and open the Arduino IDE. Upload the code and open the serial monitor in the IDE.
@@ -112,8 +110,8 @@
 						transmit in the pushbutton part of this tutorial. Save it somewhere convenient
 						so you can paste it into the pushbutton code.</p>
 					
-						<p>You don't really need the breadboard for this part of the tutorial. With male-female jumper wires you could 
-						just connect the IR sensor directly to the Arduino board.</p>
+						<p>You don't really need the breadboard for this part of the tutorial. If you like you can 
+						just use male-female jumper wires and connect the IR sensor directly to the Arduino board.</p>
 						<img class="card-img border border-secondary rounded-sm mt-5" src="https://github.com/scowler1/scowler1.github.io/blob/master/img/IRclean.png?raw=true">
 					</div>	
 				</div>		
