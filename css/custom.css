@@ -13,7 +13,7 @@ h5 {font-size: 1.2rem;
 p {font-size: .9rem;
 }
 
-@media (max-width: @screen-xs) {
+@media (max-width: @screen-sm) {
     body{font-size: 10px;}
 }
 
