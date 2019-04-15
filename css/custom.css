@@ -13,8 +13,8 @@ h5 {font-size: 1.2rem;
 p {font-size: .9rem;
 }
 
-@media (min-width: @screen-md-min) {
-    .h1{font-size: 20px;}
+@media (min-width: @screen-md-min-sm) {
+    h1{font-size: 20px;}
 }
 
 .img {
