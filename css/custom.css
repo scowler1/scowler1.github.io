@@ -48,6 +48,9 @@ border: 0;
 outline: 0;
 }
 
+.jumbotron {
+	background-image: ("C:\Users\scowl\Downloads\ard.jpg") ;
+}
 *:hover,
 *:focus,
 *:active{
