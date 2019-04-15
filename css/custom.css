@@ -13,6 +13,9 @@ h5 {font-size: 1.2rem;
 p {font-size: .9rem;
 }
 
+@media (max-width: @screen-xs) {
+    .h1{font-size: 10px;}
+}
 
 .img {
 opacity: 0.9;
