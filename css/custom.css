@@ -14,11 +14,19 @@ p {font-size: .9rem;
 }
 
 @media (max-width: @screen-sm) {
-    h1{font-size: 15px;}
+    h1{font-size: 12px;}
 }
 
 @media (max-width: @screen-xs) {
-    h1{font-size: 15px;}
+    body{font-size: 12px;}
+}
+
+@media (max-width: @screen-sm) {
+    body{font-size: 12px;}
+}
+
+@media (max-width: @screen-xs) {
+    h1{font-size: 12px;}
 }
 
 
