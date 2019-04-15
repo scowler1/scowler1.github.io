@@ -14,7 +14,11 @@ p {font-size: .9rem;
 }
 
 @media (max-width: @screen-sm) {
-    h1{font-size: 3.5rem;}
+    h1{font-size: 15px;}
+}
+
+@media (max-width: @screen-xs) {
+    h1{font-size: 15px;}
 }
 
 
