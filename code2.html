@@ -125,12 +125,9 @@
 
 IRsend irsend;
 
-
-// constants won't change. They're used here to set pin numbers:
 const int buttonPin = 2;     // the number of the pushbutton pin
 const int ledPin =  13;      // the number of the LED pin
 
-// variables will change:
 int buttonState = 0;         // variable for reading the pushbutton status
 
 
@@ -147,7 +144,7 @@ void setup() {
 void loop() {
       buttonState = digitalRead(buttonPin);  // Check if the button is pressed
       if (buttonPin == HIGH) {               // If it is...
-        digitalWrite(ledPin, HIGH);          // ...turn on the LED on the Arduino board
+        digitalWrite(ledPin, HIGH);          // Turn on the LED on the Arduino board
     
 	// This code is from the IRremote library and assumes you have an IR led connected to Digital Output 3
     int khz = 38; // 38kHz carrier frequency for the NEC protocol
